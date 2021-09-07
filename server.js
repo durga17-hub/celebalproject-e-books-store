@@ -34,6 +34,7 @@ const initializeDbAndServer = async () => {
 initializeDbAndServer();
 
 
+//middleware-1
 const authenticateToken = (request, response, next) => {
   let jwtToken;
   const authHeader = request.headers["authorization"];
@@ -55,6 +56,7 @@ const authenticateToken = (request, response, next) => {
   }
 };
 
+//middleware-2
 const checkValidUser = async (request, response, next) => {
   const selectUserQuery = `SELECT * FROM users WHERE username = '${request.body.name}';`;
   const validUser = await database.get(selectUserQuery);
@@ -184,7 +186,7 @@ app.get("/prices/", authenticateToken, async (req, res) => {
   res.send(priceBookData);
 });
 
-/// api 4 buying books
+//buying books
 app.post("/transaction/", checkValidUser, async (request, response) => {
   const {name, address, bookName} = request.body;
   const randomTransactionId = Math.floor((Math.random() * 1000000000000) + 1);
@@ -203,7 +205,7 @@ app.post("/transaction/", checkValidUser, async (request, response) => {
   response.send("Transaction SuccessFull!!");
 });
 
-/// price of the books API
+// 
 app.post("/prices/", authenticateToken, async (req, res) => {
   const getPriceQuery = `SELECT price,author,rating FROM books WHERE title = '${req.body.title}';`;
   const price = await database.get(getPriceQuery);

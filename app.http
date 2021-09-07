@@ -1,0 +1,91 @@
+
+//register 
+POST http://localhost:3003/register/
+Content-Type: application/json
+
+{
+  "username":"Goutham",
+  "name": "Goutham deepala",
+  "password":"Goutham@123"
+}
+
+####
+
+
+//login 
+POST http://localhost:3003/login/
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+  "username":"Goutham",
+  "password":"Goutham@123"
+}
+
+####
+
+
+//all books 
+GET http://localhost:3003/books/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
+####
+
+//fiter by author
+GET http://localhost:3003/authors/?author=Elizabeth Cleghorn Gaskell
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
+
+
+
+###
+
+//filter by title
+GET http://localhost:3003/titles/?title=Lark Rise to Candleford
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
+
+
+
+###
+
+//filter by ratings
+GET http://localhost:3003/ratings/?rating=4.5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
+
+
+
+###
+
+//filter by price
+GET http://localhost:3003/prices/?price=700
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
+
+
+
+###
+//transaction request
+POST http://localhost:3003/transaction/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTIwODV9.kUpScRTwYbim9fdHC2Jl25OopYJOZ7NUK_aGp5on3Rk
+
+
+{
+  "name": "durgaBidasi",
+  "address": "Vizag",
+  "bookName": "Lark Rise to Candleford"
+}
+
+####
+
+
+####
+
+POST http://localhost:3003/prices/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTIwODV9.kUpScRTwYbim9fdHC2Jl25OopYJOZ7NUK_aGp5on3Rk
+
+{
+  "title": "The Alchemist"
+}
+
+####
+
+

@@ -125,29 +125,9 @@ app.post("/register/", async (request, response) => {
 
 //All books API
 app.get("/books/", authenticateToken, async (request, response) => {
-  let jwtToken;
-  const authHeader = request.headers["authorization"];
-  if (authHeader !== undefined) {
-    jwtToken = authHeader.split(" ")[1];
-  }
-  if (jwtToken === undefined) {
-    response.status(401);
-    response.send("Invalid Access Token");
-  } else {
-    jwt.verify(jwtToken, "MY_SECRET_TOKEN", async (error, payload) => {
-      if (error) {
-        response.send("Invalid Access Token");
-      } else {
-        const getBooksQuery = `
-            SELECT
-              *
-            FROM
-             books;`;
-        const booksArray = await database.all(getBooksQuery);
-        response.send(booksArray);
-      }
-    });
-  }
+    const getBooksQuery = `SELECT * FROM books;`;
+    const booksArray = await database.all(getBooksQuery);
+    response.send(booksArray);
 });
 
 //filter by author

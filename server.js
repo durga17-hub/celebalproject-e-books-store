@@ -167,7 +167,7 @@ app.get("/prices/", authenticateToken, async (req, res) => {
 });
 
 //buying books
-app.post("/transaction/", checkValidUser, async (request, response) => {
+app.post("/transaction/", authenticateToken, checkValidUser, async (request, response) => {
   const {name, address, bookName} = request.body;
   const randomTransactionId = Math.floor((Math.random() * 1000000000000) + 1);
   const getPriceQuery = `SELECT price FROM books WHERE title = '${request.body.bookName}';`;

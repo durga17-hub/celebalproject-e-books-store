@@ -1,5 +1,6 @@
 
 //register 
+
 POST http://localhost:3003/register/
 Content-Type: application/json
 
@@ -13,9 +14,9 @@ Content-Type: application/json
 
 
 //login 
+
 POST http://localhost:3003/login/
 Content-Type: application/json
-Authorization: Bearer 
 
 {
   "username":"Goutham",
@@ -26,11 +27,13 @@ Authorization: Bearer
 
 
 //all books 
+
 GET http://localhost:3003/books/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 ####
 
 //fiter by author
+
 GET http://localhost:3003/authors/?author=Elizabeth Cleghorn Gaskell
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 
@@ -39,6 +42,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikdvd
 ###
 
 //filter by title
+
 GET http://localhost:3003/titles/?title=Lark Rise to Candleford
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 
@@ -47,6 +51,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikdvd
 ###
 
 //filter by ratings
+
 GET http://localhost:3003/ratings/?rating=4.5
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 
@@ -55,6 +60,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikdvd
 ###
 
 //filter by price
+
 GET http://localhost:3003/prices/?price=700
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 
@@ -62,9 +68,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikdvd
 
 ###
 //transaction request
+
 POST http://localhost:3003/transaction/
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTIwODV9.kUpScRTwYbim9fdHC2Jl25OopYJOZ7NUK_aGp5on3Rk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 
 
 {
@@ -76,11 +83,9 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikdvd
 ####
 
 
-####
-
 POST http://localhost:3003/prices/
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTIwODV9.kUpScRTwYbim9fdHC2Jl25OopYJOZ7NUK_aGp5on3Rk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdvdXRoYW0iLCJpYXQiOjE2MzEwMTA2NTB9.-8JNJzyAKiCJRoJsApSrNeOiOTZtldRT8SVlUKHsdb8
 
 {
   "title": "The Alchemist"

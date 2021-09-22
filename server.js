@@ -69,6 +69,32 @@ const checkValidUser = async (request, response, next) => {
 }
 
 
+//register API
+app.post("/register/", async (request, response) => {
+  const { username, name, password} = request.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const selectUserQuery = `SELECT * FROM users WHERE username = '${username}';`;
+  const databaseUser = await database.get(selectUserQuery);
+
+  if (databaseUser === undefined) {
+    const createUserQuery = `
+     INSERT INTO
+      users (username, name, password)
+     VALUES
+      (
+       '${username}',
+       '${name}',
+       '${hashedPassword}' 
+      );`;
+    await database.run(createUserQuery);
+    response.send("User created successfully");
+  } else {
+    response.status(400);
+    response.send("User already exists");
+  }
+});
+
+
 //login API
 app.post("/login/", async (request, response) => {
   const { username, password } = request.body;
@@ -94,31 +120,6 @@ app.post("/login/", async (request, response) => {
       response.status(400);
       response.send("Invalid Password");
     }
-  }
-});
-
-//register API
-app.post("/register/", async (request, response) => {
-  const { username, name, password} = request.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const selectUserQuery = `SELECT * FROM users WHERE username = '${username}';`;
-  const databaseUser = await database.get(selectUserQuery);
-
-  if (databaseUser === undefined) {
-    const createUserQuery = `
-     INSERT INTO
-      users (username, name, password)
-     VALUES
-      (
-       '${username}',
-       '${name}',
-       '${hashedPassword}' 
-      );`;
-    await database.run(createUserQuery);
-    response.send("User created successfully");
-  } else {
-    response.status(400);
-    response.send("User already exists");
   }
 });
 
